@@ -5,14 +5,20 @@ using System.Linq;
 
 namespace Advent
 {
-    public class Bingo
+    public class Day4
     {
-        static int[] drawnNumbers = { 1, 76, 38, 96, 62, 41, 27, 33, 4, 2, 94, 15, 89, 25, 66, 14, 30, 0, 71, 21, 48, 44, 87, 73, 60, 50, 77, 45, 29, 18, 5, 99, 65, 16, 93, 95, 37, 3, 52, 32, 46, 80, 98, 63, 92, 24, 35, 55, 12, 81, 51, 17, 70, 78, 61, 91, 54, 8, 72, 40, 74, 68, 75, 67, 39, 64, 10, 53, 9, 31, 6, 7, 47, 42, 90, 20, 19, 36, 22, 43, 58, 28, 79, 86, 57, 49, 83, 84, 97, 11, 85, 26, 69, 23, 59, 82, 88, 34, 56, 13 };
+        static int[] drawnNumbers;
         static List<int[][]> boards;
 
-        public Bingo()
+        public Day4()
         {
             boards = ParseBoards();
+            drawnNumbers = ParseNumbers();
+        }
+
+        private int[] ParseNumbers()
+        {
+            return File.ReadAllLines("data/bingoData.txt")[0].Split(',').Select(int.Parse).ToArray();
         }
 
         private List<int[][]> ParseBoards()
@@ -20,7 +26,8 @@ namespace Advent
             List<int[][]> list = new();
             var data = File.ReadAllLines("data/bingoData.txt");
 
-            for (int i = 0; i < data.Length; i += 6)
+
+            for (int i = 2; i < data.Length; i += 6)
             {
                 var board = new int[5][];
                 for (int j = 0; j < 5; j++)
@@ -43,10 +50,10 @@ namespace Advent
             return list;
         }
 
-        public int[][] PlayBingoPart1(ref int x)
+        public void PlayBingoPart1()
         {
             int[][] winner = new int[5][];
-
+            int x = 0;
             foreach (int n in drawnNumbers)
             {
                 foreach (int[][] board in boards)
@@ -66,16 +73,16 @@ namespace Advent
                 if (winner != null)
                 {
                     x = n;
-                    return winner;
+                    System.Console.WriteLine(CalcScore(winner, x));
+                    return;
                 }
             }
-
-            return null;
         }
-        public int[][] PlayBingoPart2(ref int x)
+
+        public void PlayBingoPart2()
         {
             List<int[][]> winners = boards;
-
+            int x = 0;
             foreach (int n in drawnNumbers)
             {
                 foreach (int[][] board in winners)
@@ -92,8 +99,6 @@ namespace Advent
                     }
                 }
 
-
-
                 int[][] winner = CheckForWinners(winners);
                 if (winner != null && winners.Count != 1)
                 {
@@ -109,11 +114,10 @@ namespace Advent
                 else if (winner != null)
                 {
                     x = n;
-                    return winner;
+                    System.Console.WriteLine(CalcScore(winner, x));
+                    return;
                 }
             }
-
-            return null;
         }
 
 
@@ -215,6 +219,22 @@ namespace Advent
                 }
             }
             return false;
+        }
+
+        public int CalcScore(int[][] board, int winningN)
+        {
+            int score = 0;
+            for (int i = 0; i < board.Length; i++)
+            {
+                for (int j = 0; j < board[i].Length; j++)
+                {
+                    if (board[i][j] > 0)
+                    {
+                        score += board[i][j];
+                    }
+                }
+            }
+            return score * winningN;
         }
     }
 }
