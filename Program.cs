@@ -7,9 +7,8 @@ namespace AOC
     {
         static void Main(string[] args)
         {
-            Advent2015.Day2 d = new Advent2015.Day2();
-            d.SolvePart1();
-            d.SolvePart2();
+            Advent2015.Day3 d = new Advent2015.Day3();
+            d.Part2();
         }
     }
 }
