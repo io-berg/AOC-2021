@@ -2,9 +2,8 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using System.Numerics;
 
-namespace Advent
+namespace Advent2021
 {
     public class Day6
     {
@@ -14,7 +13,7 @@ namespace Advent
 
         public Day6()
         {
-            File.ReadAllLines("data/GlowFishData.txt").ToList().ForEach(line => line.Split(",").ToList().ForEach(x => fish.Add(int.Parse(x))));
+            File.ReadAllLines("2021/data/GlowFishData.txt").ToList().ForEach(line => line.Split(",").ToList().ForEach(x => fish.Add(int.Parse(x))));
 
             foreach (int s in fish)
             {

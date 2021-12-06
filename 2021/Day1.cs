@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 
-namespace Advent
+namespace Advent2021
 {
     public class Day1
     {
@@ -11,7 +11,7 @@ namespace Advent
 
         public Day1()
         {
-            File.ReadAllLines("data/day1.txt").ToList().ForEach(x => data.Add(int.Parse(x)));
+            File.ReadAllLines("2021/data/day1.txt").ToList().ForEach(x => data.Add(int.Parse(x)));
         }
 
         public int part1()

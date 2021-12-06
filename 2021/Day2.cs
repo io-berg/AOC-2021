@@ -1,7 +1,7 @@
 using System;
 using System.IO;
 
-namespace Advent
+namespace Advent2021
 {
     public class Day2
     {
@@ -11,7 +11,7 @@ namespace Advent
             int horizontal = 0;
             int vertical = 0;
 
-            var input = File.ReadAllLines("data/pilotingData.txt");
+            var input = File.ReadAllLines("2021/data/pilotingData.txt");
 
             foreach (var s in input)
             {
@@ -41,7 +41,7 @@ namespace Advent
             int horizontal = 0;
             int vertical = 0;
 
-            foreach (string s in File.ReadLines("data/pilotingData.txt"))
+            foreach (string s in File.ReadLines("2021/data/pilotingData.txt"))
             {
                 if (s.Contains("forward"))
                 {

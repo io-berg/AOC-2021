@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 
-namespace Advent
+namespace Advent2021
 {
     public class Day3
     {
@@ -18,7 +18,7 @@ namespace Advent
         private static int CalcCo2ScrubRating()
         {
             List<string> data = new();
-            foreach (string s in File.ReadAllLines("data/diagnosticData.txt"))
+            foreach (string s in File.ReadAllLines("2021/data/diagnosticData.txt"))
             {
                 data.Add(s);
             }
@@ -48,7 +48,7 @@ namespace Advent
         private static int CalcOxyGenRating()
         {
             List<string> data = new();
-            foreach (string s in File.ReadAllLines("data/diagnosticData.txt"))
+            foreach (string s in File.ReadAllLines("2021/data/diagnosticData.txt"))
             {
                 data.Add(s);
             }
@@ -77,7 +77,7 @@ namespace Advent
 
         private static int DayThreePart1()
         {
-            var data = File.ReadAllLines("data/diagnosticData.txt");
+            var data = File.ReadAllLines("2021/data/diagnosticData.txt");
             string gammaRate = "";
             string epsilonRate = "";
             int one = 0;

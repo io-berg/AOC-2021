@@ -3,7 +3,7 @@ using System;
 using System.IO;
 using System.Linq;
 
-namespace Advent
+namespace Advent2021
 {
     public class Day4
     {
@@ -18,13 +18,13 @@ namespace Advent
 
         private int[] ParseNumbers()
         {
-            return File.ReadAllLines("data/bingoData.txt")[0].Split(',').Select(int.Parse).ToArray();
+            return File.ReadAllLines("2021/data/bingoData.txt")[0].Split(',').Select(int.Parse).ToArray();
         }
 
         private List<int[][]> ParseBoards()
         {
             List<int[][]> list = new();
-            var data = File.ReadAllLines("data/bingoData.txt");
+            var data = File.ReadAllLines("2021/data/bingoData.txt");
 
 
             for (int i = 2; i < data.Length; i += 6)

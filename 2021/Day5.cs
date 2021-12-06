@@ -1,7 +1,7 @@
 using System;
 using System.IO;
 
-namespace Advent
+namespace Advent2021
 {
     public class Day5
     {
@@ -17,7 +17,7 @@ namespace Advent
                 thermalField[i] = new int[1000];
             }
 
-            data = File.ReadAllLines("data/thermalVentData.txt");
+            data = File.ReadAllLines("2021/data/thermalVentData.txt");
         }
 
         public int CountOverlaps()
