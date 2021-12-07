@@ -6,18 +6,26 @@ namespace Advent2021
 {
     public class Day7
     {
-        int[] sdata = { 16, 1, 2, 0, 4, 2, 7, 1, 2, 14 };
         int[] data;
+        int min;
+        int max;
 
         public Day7()
         {
             data = File.ReadAllText("2021/data/Day7.txt").Split(',').Select(x => int.Parse(x)).ToArray();
+            min = data.Min();
+            max = data.Max();
+        }
+
+        public Day7(int[] data)
+        {
+            this.data = data;
+            min = data.Min();
+            max = data.Max();
         }
 
         internal void Part1()
         {
-            int min = data.Min();
-            int max = data.Max();
             int bestResult = int.MaxValue;
             int bestVal = -1;
 

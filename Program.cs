@@ -1,5 +1,4 @@
 ﻿using System;
-using Advent2015;
 
 namespace AOC
 {
