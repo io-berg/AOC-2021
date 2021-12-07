@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace AOC
 {
@@ -6,8 +7,7 @@ namespace AOC
     {
         static void Main(string[] args)
         {
-            Advent2021.Day7 d = new Advent2021.Day7();
-            d.Part1();
+            Advent2015.Day7 d = new Advent2015.Day7();
             d.Part2();
         }
     }
