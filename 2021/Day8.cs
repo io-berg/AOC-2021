@@ -7,7 +7,7 @@ namespace Advent2021
 {
     public class Day8
     {
-        int[] goodnums = new int[] { 2, 4, 3, 7 };
+        int[] goodnums = new int[] { 2, 4, 3, 7 };  // the length of easily set numbers 2=1, 4=4, 3=7, 7=8
         List<string[]> data = new List<string[]>();
 
 
@@ -21,7 +21,7 @@ namespace Advent2021
 
         private string[] ParseLine(string s)
         {
-            return new string[] { s.Split("|")[0].Trim(), s.Split("|")[1].Trim() };
+            return new string[] { s.Split("|")[0].Trim(), s.Split("|")[1].Trim() }; // separate output from data
         }
 
         internal void Part2()
@@ -30,22 +30,23 @@ namespace Advent2021
 
             foreach (string[] s in data)
             {
-                Dictionary<int, string> keys = new();
-                string combined = s[0] + " " + s[1];
+                Dictionary<int, string> keys = new();  // key is the number, value is the string associated with it
+                string combined = s[0] + " " + s[1]; // combine output with data just in case.
 
                 for (int i = 0; i < 10; i++)
                 {
-                    keys.Add(i, "");
+                    keys.Add(i, "");  // Fill directory with keys
                 }
 
-                foreach (string blink in combined.Split(" "))
+                foreach (string blink in combined.Split(" "))  // separate the big line into individual strings
                 {
-                    if (goodnums.Contains(blink.Length))
+                    if (goodnums.Contains(blink.Length))  // if its an easily set number, set it.
                     {
                         if (isNewNum(blink.Length, keys))
                             SetGoodNum(keys, blink);
                     }
                 }
+                // Set all the other numbers in order, if statement to check if the number is already set.
                 if (keys[3] == "") Set3(keys, combined);
                 if (keys[6] == "") Set6(keys, combined);
                 if (keys[5] == "") Set5(keys, combined);
@@ -61,7 +62,7 @@ namespace Advent2021
                     {
                         if (k.Value.Length == st.Length)
                         {
-                            int matches = 0;
+                            int matches = 0; // count how many characters match between the output string and the key value
                             foreach (char c in st)
                             {
                                 if (k.Value.Contains(c))
@@ -71,7 +72,7 @@ namespace Advent2021
                             }
                             if (matches == st.Length)
                             {
-                                output += k.Key;
+                                output += k.Key; // if the number matches, add it to the output string
                                 break;
                             }
                         }
@@ -207,11 +208,6 @@ namespace Advent2021
                 keys[8] = s;
         }
 
-        // 1 = 2
-        // 4 = 4
-        // 7 = 3
-        // 8 = 7
-
         internal void Part1()
         {
             int counter = 0;
@@ -227,44 +223,6 @@ namespace Advent2021
                 }
             }
             Console.WriteLine(counter);
-        }
-        public void testData()
-        {
-            int count8 = 0;
-            int count1 = 0;
-            int count4 = 0;
-            int count7 = 0;
-
-            foreach (string s in File.ReadAllLines("2021/data/Day8.txt"))
-            {
-                foreach (string x in s.Split(" "))
-                {
-                    if (x.Length == 7)
-                    {
-                        count8++;
-
-                    }
-                    if (x.Length == 2)
-                    {
-                        count1++;
-
-                    }
-                    if (x.Length == 4)
-                    {
-                        count4++;
-
-                    }
-                    if (x.Length == 3)
-                    {
-                        count7++;
-
-                    }
-                }
-            }
-            Console.WriteLine(count8);
-            Console.WriteLine(count1);
-            Console.WriteLine(count4);
-            Console.WriteLine(count7);
         }
     }
 }
