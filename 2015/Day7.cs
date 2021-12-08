@@ -20,14 +20,12 @@ namespace Advent2015
             //                      "y RSHIFT 2 -> g",
             //                      "NOT x -> h",
             //                      "NOT y -> i"};
-
-
         }
 
         public void Part2()
         {
             Dictionary<string, ushort> wires = new Dictionary<string, ushort>();
-            wires.Add("b", (ushort)Part1());
+            wires.Add("b", Part1());
 
 
             for (int i = 0; i < data.Length; i++)

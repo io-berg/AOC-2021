@@ -7,7 +7,11 @@ namespace AOC
     {
         static void Main(string[] args)
         {
-            Advent2015.Day7 d = new Advent2015.Day7();
+            string path = "2021/data/Day8.txt";
+
+            Advent2021.Day8 d = new(path);
+            // d.testData();
+            // d.Part1();
             d.Part2();
         }
     }
