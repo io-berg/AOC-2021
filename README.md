@@ -1,2 +1,2 @@
 # AOC
-Advent of code solutions
+My solutions to Advent of code
