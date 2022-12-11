@@ -8,7 +8,7 @@ namespace AOC
     {
         static void Main(string[] args)
         {
-            Y2022.Day8.Solve();
+            Y2022.Day9.Solve();
         }
     }
 }
