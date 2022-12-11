@@ -20,9 +20,9 @@ public class Day5
             .Where(x => x.Length > 1)
             .ToList();
 
-        List<Stack<Char>> columns = new List<Stack<char>>(amountOfColumns);
-        List<Stack<Char>> columnsP2 = new List<Stack<char>>(amountOfColumns);
-        List<List<Char>> starterColumns = new List<List<char>>(amountOfColumns);
+        List<Stack<Char>> columns = new List<Stack<char>>();
+        List<Stack<Char>> columnsP2 = new List<Stack<char>>();
+        List<List<Char>> starterColumns = new List<List<char>>();
         for (int i = 0; i < amountOfColumns; i++)
         {
             starterColumns.Add(new List<Char>());
